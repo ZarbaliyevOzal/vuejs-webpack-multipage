@@ -1,5 +1,6 @@
 # Vuejs-webpack-multipage
 multipage Vue application
+Vuejs, Webpack, Tailwindcss
 
 # Installation
 Download repo and setup on your local machine
