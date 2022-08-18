@@ -1,3 +1,80 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+@layer components{
+    .mbtn{
+        @apply inline-block relative text-center font-bold cursor-pointer bg-transparent border 
+            border-transparent whitespace-nowrap select-none py-3 px-5 leading-none rounded shadow;
+    }
+    
+    .mbtn-yellow{
+        @apply bg-yellow1-100;
+    }
+    
+    .mbtn-yellow:hover, .mbtn-yellow:focus, .mbtn-yellow.active{
+        @apply bg-yellow1-50;
+    }
+
+    .mbtn-primary{
+        @apply text-white bg-blue-500 border-blue-700;
+    }
+
+    .mbtn-primary:hover, .mbtn-primary:focus, .mbtn-primary.active{
+        @apply text-white bg-blue-600;
+    }
+    
+    .mbtn-s, .mbtn-xs{
+        @apply text-sm px-4 py-2 rounded-md;
+    }
+
+    .top-header-bg-image{
+        background-image: linear-gradient(180deg,rgba(0,0,0,.15),transparent 2px,transparent 42px,rgba(0,0,0,.25) 45px);
+    }
+
+    .icon-i{
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+
+    .form-control{
+        @apply block w-full h-9 px-3 py-1 border border-gray-400 rounded bg-white;
+    }
+
+    .invalid-form-control{
+        @apply border-red-700 bg-red-50;
+    }
+
+    .form-control[disabled]{
+        @apply opacity-70 bg-gray-200;
+    }
+
+    .form-control:focus{
+        @apply outline-none;
+    }
+
+    .invalid-feedback{
+        @apply block mt-1 text-sm text-red-700;
+    }
+
+    /* custom checkbox start */
+        .checkbox-container{
+            @apply flex justify-start items-start cursor-pointer;    
+        }
+        .checkbox-container .checkbox{
+            @apply bg-white border-2 rounded border-gray-400 w-6 h-6 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-blue-500;
+        }
+        .checkbox-container .checkbox input[type="checkbox"]{
+            @apply opacity-0 absolute w-0 h-0 top-0 left-0;
+        }
+        .checkbox-container .checkbox svg{
+            @apply block opacity-0 fill-current w-4 h-4 text-blue-500 pointer-events-none;
+        }
+        .checkbox-container .checkbox input:checked + svg{
+            opacity: 1;
+        }
+    /* custom checkbox end */
+}

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+    
+    <!-- start of #app -->
+    <div id="app">
+
+        <!-- website header start -->
+        <header id="header" class="relative z-100">
+            <!-- top start -->
+            <div class="top-header-bg-image h-11 hidden sm:block">
+                <div class="container px-4 mx-auto">
+                    <div class="flex justify-between">
+                        <ul class="flex items-center">
+                            <li>
+                                <a href="/contact.html" class="block pr-2 text-sm leading-11 text-gray-600 hover:bg-gray-200">Contact</a>
+                            </li>
+                        </ul>
+    
+                        <ul class="flex items-center">
+                            <li>
+                                <a href="/detailed-search.html" class="block leading-11 px-3 text-sm text-gray-600 hover:bg-gray-200 tracking-wide">Searches</a>
+                            </li>
+                            <li>
+                                <dropdown drop-btn-class="flex items-center relative leading-11 px-3 text-sm tracking-wide text-gray-600 hover:bg-gray-200"
+                                    drop-btn-text="My account" :drop-btn-class-when-show="['relative', 'z-100']"
+                                    :drop-btn-class-when-closed="['hover:bg-gray-200 ']"
+                                    drop-btn-content-class="hidden absolute top-full right-0 bg-white rounded-lg shadow-card whitespace-nowrap z-100"
+                                >
+                                    <template #content>
+                                        <div class="px-4 pt-4 pb-2">
+                                            <span class="block text-xs text-gray-400 opacity-70 font-bold">Logged in as:</span>
+                                            <span class="block text-xs text-gray-400 opacity-70 font-bold">z***92@m***.ru</span>
+                                        </div>
+                                        <a href="/profile.html" class="block px-4 py-2 hover:bg-gray-200 border-b border-gray-300 hover:border-t text-sm">Account</a>
+                                        <a href="/my-ads.html" class="block px-4 py-2 hover:bg-gray-200 border-b border-gray-300 hover:border-t text-sm">My Ads</a>
+                                        <a href="#" class="block px-4 py-2 hover:bg-gray-200 border-gray-300 hover:border-t text-sm">Logout</a>
+                                    </template>
+                                </dropdown>
+                            </li>
+                            <li class="ml-3">
+                                <a href="/login.html" class="mbtn mbtn-primary mbtn-s py-1 px-2">Login</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- top end -->
+
+            <!-- middle header start -->
+            <div class="bg-white shadow-md">
+                <div class="sm:container sm:px-4 mx-auto">
+                    <div class="flex px-4 sm:px-0 items-center justify-between">
+                        <div class="flex items-center">
+                            <a href="/" class="block"><img src="assets/images/logo5.png" class="h-10 sm:h-8"></a>
+                            <span class="whitespace-nowrap ml-3 text-sm hidden sm:hidden">Biggest Vehicle Marketplace Online</span>
+                        </div>
+                        <ul class="flex items-center">
+                            <li class="hidden sm:block">
+                                <dropdown drop-btn-class="block py-4 px-4 text-md text-gray-700 font-bold border-l border-r border-gray-200"
+                                    drop-btn-text="Search" :drop-btn-class-when-show="['relative', 'z-100', 'bg-white']"
+                                    :drop-btn-class-when-closed="['hover:bg-gray-200 ']"
+                                >
+                                    <template #content>
+                                        <a href="/detailed-search.html" class="block py-2 mx-4 hover:mx-0 hover:px-4 whitespace-nowrap border-b border-gray-300 hover:bg-gray-200">
+                                            Automobile
+                                        </a>
+                                        <a href="/detailed-search.html" class="block py-2 mx-4 hover:mx-0 hover:px-4 whitespace-nowrap border-b border-gray-300 hover:bg-gray-200">
+                                            Motorcycle
+                                        </a>
+                                        <a href="/detailed-search.html" class="block py-2 mx-4 hover:mx-0 hover:px-4 whitespace-nowrap hover:bg-gray-200">Truck</a>
+                                    </template>
+                                </dropdown>
+                            </li>
+                            <li class="hidden sm:block">
+                                <dropdown drop-btn-class="block py-4 px-4 text-md text-gray-700 font-bold border-l border-r border-gray-200"
+                                    drop-btn-text="Sell" :drop-btn-class-when-show="['relative', 'z-100', 'bg-white']"
+                                    :drop-btn-class-when-closed="['hover:bg-gray-200 ']"
+                                >
+                                    <template #content>
+                                        <a href="/new-advertisement.html" class="block py-2 mx-4 hover:mx-0 hover:px-4 whitespace-nowrap border-b border-gray-300 hover:bg-gray-200">
+                                            Automobile
+                                        </a>
+                                        <a href="/new-advertisement.html" class="block py-2 mx-4 hover:mx-0 hover:px-4 whitespace-nowrap border-b border-gray-300 hover:bg-gray-200">
+                                            Motorcycle
+                                        </a>
+                                        <a href="/new-advertisement.html" class="block py-2 mx-4 hover:mx-0 hover:px-4 whitespace-nowrap hover:bg-gray-200">Truck</a>
+                                    </template>
+                                </dropdown>
+                            </li>
+                            <li class="sm:hidden">
+                                <a href="javascript:;" class="flex items-center font-extrabold py-4" @click="toggleHeaderSidebarMenu">
+                                    Menu
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="ml-1 h-8">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- middle header end -->
+
+            <!-- mobile sidebar menu start -->
+            <nav class="fixed top-0 -right-2/3 bottom-0 w-2/3 bg-white z-40 overflow-x-hidden overflow-y-auto transition-all duration-500 ease-in-out" ref="hh">
+                <a href="javascript:;" class="flex items-center font-extrabold py-4 px-4 justify-end"
+                    @click="toggleHeaderSidebarMenu"
+                >
+                    Menu
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-8 ml-1">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </a>
+                <ul>
+                    <li class="mx-4 border-b border-gray-300">
+                        <a href="javascript:;" class="flex items-center justify-between py-4 font-bold" @click="toggleHeaderSidebarCollapseMenu(1)">
+                            My account
+                            <svg class="h-4 text-gray-300 transition-all transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" 
+                                :class="{'rotate-180': header_sidebar_menu.collapse_menu == 1}"
+                            >
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <ul class="px-4" :class="{'hidden': header_sidebar_menu.collapse_menu != 1}">
+                            <li>
+                                <span class="block text-xs text-gray-400 opacity-70 font-bold">Logged in as:</span>
+                                <span class="block text-xs text-gray-400 opacity-70 font-bold">z***92@m***.ru</span>
+                            </li>
+                            <li>
+                                <a href="/profile.html" class="block py-4 border-b border-gray-300 leading-tight">My account</a>
+                            </li>
+                            <li>
+                                <a href="/my-ads.html" class="block py-4 border-b border-gray-300">My ads</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="block py-4">log out</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- mobile sidebar menu end -->
+
+            <div class="fixed inset-0 w-full h-screen bg-black opacity-60 hidden" :style="{'display': header_sidebar_menu.is_open ? 'block' : ''}" @click="handleBackdropClick"></div>
+        </header>
+        <!-- website header end -->
+
+
+
+
+
+
+
+
+
+
+
+        <!-- main start -->
+        <main id="main">
+            
+            <section class="md:mt-8">
+                <div id="container" class="sm:container mx-auto">
+                    <div class="grid grid-cols-5 gap-4">
+                        <!-- main left col start -->
+                        <div class="col-span-5 lg:col-span-3">
+                            <div class="px-0 md:px-4 pb-4 pt-0 md:pt-4 bg-white shadow-card rounded">
+                                <div>
+                                    <gallery-carousel :show-thumbnails="true"
+                                        :images="[
+                                            {
+                                                original: 'assets/images/cars/alan-king-1R63taCoSnM-unsplash.jpg',
+                                                thumbnail: 'assets/images/cars/alan-king-1R63taCoSnM-unsplash.jpg'
+                                            },
+                                            {
+                                                original: 'assets/images/cars/arteum-ro-TVFx7iFAAdQ-unsplash.jpg',
+                                                thumbnail: 'assets/images/cars/arteum-ro-TVFx7iFAAdQ-unsplash.jpg'
+                                            },
+                                            {
+                                                original: 'assets/images/cars/brecht-denil-eCN-w5aP5AY-unsplash.jpg',
+                                                thumbnail: 'assets/images/cars/brecht-denil-eCN-w5aP5AY-unsplash.jpg'
+                                            },
+                                            {
+                                                original: 'assets/images/cars/dealer.jpg',
+                                                thumbnail: 'assets/images/cars/dealer.jpg'
+                                            },
+                                            {
+                                                original: 'assets/images/cars/erik-mclean-AaYAElNOxsQ-unsplash.jpg',
+                                                thumbnail: 'assets/images/cars/erik-mclean-AaYAElNOxsQ-unsplash.jpg'
+                                            },
+                                        ]"
+                                    ></gallery-carousel>    
+                                </div>
+
+                                <div class="flex px-4 py-4 items-center justify-between bg-gray-800">
+                                    <h2 class="md:text-xl text-white font-bold">Bmw 318, 2.5L, Yeni, Dizel, 1996 il, Mexaniki, 316000km</h2>
+                                    <h2 class="ml-4 sm:text-xl md:text-3xl text-yellow1-100 font-bold">145000&#8380;</h2>
+                                </div>
+
+                                <div class="md:flex mt-1">
+                                    <div class="md:flex-grow px-4 md:px-0">
+                                        <div class="">
+                                            <table class="w-full">
+                                                <tr>
+                                                    <td class="py-1 px-1 bg-gray-100 border-r-2 border-white">Make</td>
+                                                    <td class="py-1 px-1 bg-gray-100">
+                                                        <a href="#" class="text-blue-600 underline">Bmw</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1 px-1 border-r-2 border-white">Model</td>
+                                                    <td class="py-1 px-1">
+                                                        <a href="#" class="text-blue-600 underline">318</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1 px-1 bg-gray-100  border-r-2 border-white">First Registration</td>
+                                                    <td class="py-1 px-1 bg-gray-100 ">2016</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1 px-1 border-r-2 border-white">Body Type</td>
+                                                    <td class="py-1 px-1">Sedan</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1 px-1 bg-gray-100  border-r-2 border-white">Color</td>
+                                                    <td class="py-1 px-1 bg-gray-100 ">White</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1 px-1 border-r-2 border-white">Engine Capacity</td>
+                                                    <td class="py-1 px-1">2.5L</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1 px-1 bg-gray-100  border-r-2 border-white">Power</td>
+                                                    <td class="py-1 px-1 bg-gray-100 ">175hp</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1 px-1 border-r-2 border-white">Fuel</td>
+                                                    <td class="py-1 px-1">Disel</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1 px-1 bg-gray-100  border-r-2 border-white">Gearbox</td>
+                                                    <td class="py-1 px-1 bg-gray-100 ">Automatic</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1 px-1 border-r-2 border-white">Transmission</td>
+                                                    <td class="py-1 px-1">Front</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="mt-1">
+                                            <span class="inline-block px-2 bg-gray-100 border border-gray-300">Barter</span>
+                                            <span class="inline-block ml-2 px-2 bg-gray-100 border border-gray-300"> Kredit</span>
+                                        </div>
+                                        <div class="mt-4">
+                                            <h6 class="text-lg text-gray-600 font-bold">Equipment</h6>
+                                            <ul class="flex flex-wrap justify-between mt-1">
+                                                <li class="w-1/2 flex-grow">
+                                                    <i class="fas fa-check text-gray-500"></i> ABS
+                                                </li>
+                                                <li class="w-1/2 flex-grow">
+                                                    <i class="fas fa-check text-gray-500"></i> Conditioner
+                                                </li>
+                                                <li class="w-1/2 flex-grow">
+                                                    <i class="fas fa-check text-gray-500"></i> Alloy wheels
+                                                </li>
+                                                <li class="w-1/2 flex-grow">
+                                                    <i class="fas fa-check text-gray-500"></i> Arm rest
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="mt-4">
+                                            <h6 class="text-lg text-gray-600 font-bold">Detailed Info</h6>
+                                            <div class="mt-1">
+                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium ullam sed quod aperiam. Laborum optio exercitationem, a excepturi facere cupiditate ipsum et dolorem accusamus sit enim. Saepe culpa doloribus provident.
+                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium ullam sed quod aperiam. Laborum optio exercitationem, a excepturi facere cupiditate ipsum et dolorem accusamus sit enim. Saepe culpa doloribus provident.
+                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium ullam sed quod aperiam. Laborum optio exercitationem, a excepturi facere cupiditate ipsum et dolorem accusamus sit enim. Saepe culpa doloribus provident.
+                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium ullam sed quod aperiam. Laborum optio exercitationem, a excepturi facere cupiditate ipsum et dolorem accusamus sit enim. Saepe culpa doloribus provident.
+                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium ullam sed quod aperiam. Laborum optio exercitationem, a excepturi facere cupiditate ipsum et dolorem accusamus sit enim. Saepe culpa doloribus provident.
+                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium ullam sed quod aperiam. Laborum optio exercitationem, a excepturi facere cupiditate ipsum et dolorem accusamus sit enim. Saepe culpa doloribus provident.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="px-4 mt-4 md:px-0 md:ml-3 md:mt-0">
+                                        <!-- contact section start -->
+                                        <div class="px-4 py-2 border border-gray-200 bg-gray-50">
+                                            <span class="block text-center text-gray-600">Ozal Zarbaliyev</span>
+                                            <span class="block text-gray-600 text-center font-bold whitespace-nowrap">+994703503738</span>
+                                            <span class="block text-gray-600 text-center font-bold whitespace-nowrap">+994703503738</span>
+                                            <span class="block text-gray-600 text-center font-bold whitespace-nowrap">+994703503738</span>
+                                            <span class="flex items-center justify-center">
+                                                <i class="inline-block w-4 h-4 bg-no-repeat bg-contain bg-center" style="background-image: url(assets/images/svg-icons/map-marker.svg)"></i>
+                                                Baku
+                                            </span>
+                                        </div>
+                                        <!-- contact section end -->
+                                        <div class="mt-3">
+                                            <div class="flex justify-between">
+                                                <span class="whitespace-nowrap">Ad. id: </span>
+                                                <span class="ml-2 whitespace-nowrap">19856523</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="whitespace-nowrap">Publish date: </span>
+                                                <span class="ml-2 whitespace-nowrap">12/12/2020</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="whitespace-nowrap">Viewed: </span>
+                                                <span class="ml-2 whitespace-nowrap">20</span>
+                                            </div>
+                                        </div>
+                                        <!-- share and actions start -->
+                                        <ul class="mt-3 text-right">
+                                            <li class="inline-block ">
+                                                <a href="#" class="block" title="share on facebook">
+                                                    <i class="inline-block w-8 h-8 bg-no-repeat bg-contain bg-center" style="background-image: url(assets/images/svg-icons/facebook.svg)"></i>
+                                                </a>
+                                            </li>
+                                            <li class="inline-block ml-1">
+                                                <a href="#" class="block" title="share on whatsapp">
+                                                    <i class="inline-block w-8 h-8 bg-no-repeat bg-contain bg-center" style="background-image: url(assets/images/svg-icons/whatsapp.svg)"></i>
+                                                </a>
+                                            </li>
+                                            <li class="inline-block ml-1">
+                                                <confirm-ownership-for-edit-ad></confirm-ownership-for-edit-ad>
+                                            </li>
+                                            <li class="inline-block ml-1">
+                                                <confirm-ownership-for-delete-the-ad></confirm-ownership-for-delete-the-ad>
+                                                
+                                            </li>
+                                        </ul>
+                                        <!-- share and actions end -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- main left col end -->
+
+                        <!-- right col start -->
+                        <div class="col-span-5 lg:col-span-2"></div>
+                        <!-- right col end -->
+                    </div>
+                    <!-- grid end -->
+                </div>
+                <!-- container end -->
+            </section>
+
+        </main>
+        <!-- main end -->
+
+
+
+
+
+
+
+
+
+
+
+        <!-- footer start -->
+        <footer class="mt-32">
+            <div class="sm:container sm:px-4 mx-auto">
+                <div class="flex justify-between items-center px-4 sm:px-0">
+                    <div>
+                        <a href="#" class="inline-block text-xl text-gray-500">
+                            <i class="fab fa-facebook-square"></i>
+                        </a>
+                        <a href="#" class="inline-block ml-2 text-xl text-gray-500">
+                            <i class="fab fa-instagram-square"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="javascript:;" class="flex items-center text-blue-600"
+                            onclick="window.scrollTo(0,0)"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="inline-block w-4 h-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                            </svg>
+                            To the top
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-300 mt-5 pt-5 px-4 sm:px-0">
+                    <h2 class="font-bold">Motorbaza.az: Best vehicles marketplace online</h2>
+                    <div class="mt-3">
+                        <a href="/about-us.html" class="hover:text-blue-700 block">About Us</a>
+                        <a href="/contact.html" class="hover:text-blue-700 block mt-1">Contact Us</a>
+                    </div>
+                </div>
+
+                <div class="mt-5 py-5 border-t border-gray-300 text-gray-500 px-4 sm:px-0">
+                    &#169; 2020 motobaza.az
+                </div>
+            </div>
+        </footer>
+        <!-- footer end -->
+        
+    </div>
+    <!-- end of #app -->
+
+</body>
+</html>

@@ -34,7 +34,13 @@
   "dependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "autoprefixer": "^9.8.6",
+    "micromodal": "^0.4.6",
+    "numeral": "^2.0.6",
+    "sweetalert2": "^10.13.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
-    "vue": "^3.0.5"
+    "vee-validate": "^4.1.2",
+    "vue": "^3.0.5",
+    "vue-slick-carousel": "^1.0.6",
+    "yup": "^0.32.8"
   }
 }
